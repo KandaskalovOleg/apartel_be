@@ -1,0 +1,41 @@
+[
+  {
+    "id": "170557560960",
+    "name": "Імя",
+    "surname": "Прізвище",
+    "position": "Покоївка",
+    "password": "R6us37"
+  },
+  {
+    "id": "1706110198919",
+    "name": "Імя1",
+    "surname": "Прізвище1",
+    "position": "Адміністратор",
+    "password": "V6PeLS"
+  },
+  {
+    "id": "1706110211069",
+    "name": "Імя2",
+    "surname": "Прізвище2",
+    "position": "Покоївка",
+    "answer": {
+      "mark": "2/10",
+      "result": {}
+    },
+    "password": "dbQTOC"
+  },
+  {
+    "id": "1706350695564",
+    "name": "Імя3",
+    "surname": "Прізвище3",
+    "position": "test1",
+    "password": "GOE8of"
+  },
+  {
+    "id": "1706438569824",
+    "name": "тест2",
+    "surname": "івамівам",
+    "position": "test2",
+    "password": "aFm7OT"
+  }
+]
