@@ -113,28 +113,24 @@ positionsService.post('/api/questions/:positionId', async (req, res) => {
   }
 });
 
-positionsService.delete('/api/questions/:positionIndex/:questionIndex', async (req, res) => {
-  const { positionIndex, questionIndex } = req.params;
+positionsService.delete('/api/questions/:positionId/:questionIndex', async (req, res) => {
+  const { positionId, questionIndex } = req.params;
   
-
   try {
     const data = await fs.readFile(positionsDataFilePath, 'utf8');
     let positions = JSON.parse(data);
 
-    // Перевіряємо, чи індекси є числами
-    if (isNaN(positionIndex) || isNaN(questionIndex)) {
-      return res.status(400).send('Невірні індекси');
+    if (isNaN(questionIndex)) {
+      return res.status(400).send('Невірний індекс');
     }
 
-    const positionIndexNum = parseInt(positionIndex);
     const questionIndexNum = parseInt(questionIndex);
 
+    const position = positions.find(pos => pos.id === positionId);
 
-    if (positionIndexNum < 0 || positionIndexNum > positions.length) {
+    if (!position) {
       return res.status(404).send('Посада не знайдена');
     }
-
-    const position = positions[positionIndexNum - 1];
 
     if (questionIndexNum < 0 || questionIndexNum >= position.pool.length) {
       return res.status(404).send('Питання не знайдено');
@@ -151,6 +147,7 @@ positionsService.delete('/api/questions/:positionIndex/:questionIndex', async (r
     res.status(500).send('Внутрішня помилка сервера');
   }
 });
+
 
 positionsService.get('/api/positions/:name/questions', async (req, res) => {
   const { name } = req.params;

@@ -50,20 +50,26 @@
           "Спочатку розгублююсь, а потім прибираю.": false,
           "Прошу когось іншого це зробити.": true
         }
-      }
-    ]
-  },
-  {
-    "id": "4",
-    "name": "test2",
-    "pool": [
+      },
       {
-        "question": "питання?",
-        "type": "radio",
+        "question": "ваммамвам",
+        "type": "checked",
         "link": null,
         "options": {
-          "1": false,
-          "2": true
+          "1": true,
+          "2": true,
+          "3": false
+        }
+      },
+      {
+        "question": "тестове питання",
+        "type": "checked",
+        "link": null,
+        "options": {
+          "відп 1": true,
+          "відп 2": false,
+          "відп 3": false,
+          "відп 4": true
         }
       }
     ]

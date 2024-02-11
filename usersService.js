@@ -7,6 +7,17 @@ const usersDataFilePath = 'usersData.json';
 
 usersService.use(express.json());
 
+usersService.post('/api/checkPassword', (req, res) => {
+  const { password } = req.body;
+  const expectedPassword = '111111';
+
+  if (password === expectedPassword) {
+    return res.status(200).json({ success: true });
+  } else {
+    return res.status(401).json({ success: false, message: 'Неправильний пароль' });
+  }
+});
+
 // Endpoint для перевірки пароля
 usersService.post('/api/login', async (req, res) => {
   const { password } = req.body;
@@ -26,6 +37,7 @@ usersService.post('/api/login', async (req, res) => {
       res.json({
         success: true,
         position: user.position,
+        password: user.password,
       });
     } else {
       res.status(401).json({
