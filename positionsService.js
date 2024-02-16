@@ -26,12 +26,12 @@ positionsService.post('/api/positions', async (req, res) => {
     const data = await fs.readFile(positionsDataFilePath, 'utf8');
     const positions = JSON.parse(data);
 
-    if (positions.some(position => position.name === newPosition.name)) {
+    if (positions.some(position => position.name.toUpperCase() === newPosition.name.toUpperCase())) {
       res.status(400).send('Position with the same name already exists');
     } else {
       const newId = positions.length > 0 ? String(Math.max(...positions.map(pos => +pos.id)) + 1) : '1';
 
-      const newPositionWithPool = { id: newId, ...newPosition, pool: [] };
+      const newPositionWithPool = { id: newId, ...newPosition, pool: [], info: {} };
 
       positions.push(newPositionWithPool);
       await fs.writeFile(positionsDataFilePath, JSON.stringify(positions, null, 2), 'utf8');
@@ -43,24 +43,65 @@ positionsService.post('/api/positions', async (req, res) => {
   }
 });
 
-// Endpoint для оновлення позиції
-positionsService.put('/api/positions/:id', async (req, res) => {
+positionsService.post('/api/positions/:id/info', async (req, res) => {
   const positionId = req.params.id;
-  const updatedPosition = req.body;
+  const html = req.body.html;
 
   try {
     const data = await fs.readFile(positionsDataFilePath, 'utf8');
-    let positions = JSON.parse(data);
+    const positions = JSON.parse(data);
 
-    const index = positions.findIndex(position => position.id === positionId);
+    const positionIndex = positions.findIndex(pos => pos.id === positionId);
 
-    if (index !== -1) {
-      positions[index] = { ...positions[index], ...updatedPosition };
+    if (positionIndex !== -1) {
+      positions[positionIndex].info = html;
       await fs.writeFile(positionsDataFilePath, JSON.stringify(positions, null, 2), 'utf8');
-      res.json(positions[index]);
+      res.json({ message: 'HTML-код успішно збережено у полі info позиції' });
     } else {
-      res.status(404).send('Position not found');
+      res.status(404).send('Позицію не знайдено');
     }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Внутрішня помилка сервера');
+  }
+});
+
+// Ендпоінт для отримання HTML-коду з властивості info позиції
+positionsService.get('/api/positions/:id/info', async (req, res) => {
+  const positionId = req.params.id;
+
+  try {
+    const data = await fs.readFile(positionsDataFilePath, 'utf8');
+    const positions = JSON.parse(data);
+
+    const position = positions.find(pos => pos.id === positionId);
+
+    if (!position) {
+      return res.status(404).json({ error: 'Position not found' });
+    }
+
+    res.json({ html: position.info });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+// Ендпоінт для отримання HTML-коду з властивості info позиції за ім'ям
+positionsService.get('/api/positions/:positionId', async (req, res) => {
+  const positionName = req.params.positionId;
+
+  try {
+    const data = await fs.readFile(positionsDataFilePath, 'utf8');
+    const positions = JSON.parse(data);
+
+    const position = positions.find(pos => pos.name === positionName);
+
+    if (!position) {
+      return res.status(404).json({ error: 'Position not found' });
+    }
+
+    res.json({ html: position.info });
   } catch (err) {
     console.error(err);
     res.status(500).send('Internal Server Error');
