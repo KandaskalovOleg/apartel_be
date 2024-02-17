@@ -1,6 +1,6 @@
 const express = require('express');
 const fs = require('fs').promises;
-const config = require('./env/env');
+// const config = require('./env/env');
 
 const usersService = express.Router();
 const usersDataFilePath = 'usersData.json';
@@ -28,10 +28,10 @@ usersService.post('/api/login', async (req, res) => {
 
     const user = users.find(user => user.password === password);
 
-    if (config.mainPassword === password) {
+    if (process.env.MAIN_PASSWORD === password) {
       res.json({
         success: true,
-        position: config.status,
+        position: process.env.STATUS,
       });
     } else if (user) {
       res.json({
