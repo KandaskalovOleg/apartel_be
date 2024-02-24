@@ -1,6 +1,14 @@
 const express = require('express');
 const fs = require('fs').promises;
 // const config = require('./env/env');
+/*
+if (config.mainPassword === password) {
+      res.json({
+        success: true,
+        position: config.status,
+      });
+    }
+*/
 
 const usersService = express.Router();
 const usersDataFilePath = 'usersData.json';
