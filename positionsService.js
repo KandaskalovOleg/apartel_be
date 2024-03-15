@@ -1,5 +1,10 @@
 const express = require('express');
 const fs = require('fs').promises;
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
+const path = require('path');
+const mammoth = require('mammoth');
+
 
 const positionsService = express.Router();
 const positionsDataFilePath = 'positionList.json';
@@ -43,20 +48,27 @@ positionsService.post('/api/positions', async (req, res) => {
   }
 });
 
-positionsService.post('/api/positions/:id/info', async (req, res) => {
+positionsService.post('/api/positions/:id/info', upload.single('doc'), async (req, res) => {
   const positionId = req.params.id;
-  const html = req.body.html;
+  const originalFileName = req.file.originalname; // Оригінальне ім'я завантаженого файлу
+  const fileExtension = path.extname(originalFileName); // Отримати розширення файлу
 
   try {
-    const data = await fs.readFile(positionsDataFilePath, 'utf8');
-    const positions = JSON.parse(data);
+    const data = await fs.readFile(req.file.path);
+    const result = await mammoth.convertToHtml({ buffer: data });
+    const htmlContent = result.value; // Отримуємо HTML-контент
+
+    const positionsData = await fs.readFile(positionsDataFilePath, 'utf8');
+    const positions = JSON.parse(positionsData);
 
     const positionIndex = positions.findIndex(pos => pos.id === positionId);
 
     if (positionIndex !== -1) {
-      positions[positionIndex].info = html;
+      const fileName = `${positionId}_${Date.now()}.html`;
+      await fs.writeFile(path.join('uploads', fileName), htmlContent, 'utf8');
+      positions[positionIndex].info = fileName;
       await fs.writeFile(positionsDataFilePath, JSON.stringify(positions, null, 2), 'utf8');
-      res.json({ message: 'HTML-код успішно збережено у полі info позиції' });
+      res.json({ message: 'HTML-файл успішно збережено у полі info позиції' });
     } else {
       res.status(404).send('Позицію не знайдено');
     }
@@ -66,21 +78,25 @@ positionsService.post('/api/positions/:id/info', async (req, res) => {
   }
 });
 
-// Ендпоінт для отримання HTML-коду з властивості info позиції
-positionsService.get('/api/positions/:id/info', async (req, res) => {
-  const positionId = req.params.id;
+// Ендпоінт для отримання файлу
+positionsService.get('/api/positions/:positionId/file', async (req, res) => {
+  const positionName = req.params.positionId;
 
   try {
     const data = await fs.readFile(positionsDataFilePath, 'utf8');
     const positions = JSON.parse(data);
 
-    const position = positions.find(pos => pos.id === positionId);
+    const position = positions.find(pos => pos.name === positionName);
 
-    if (!position) {
-      return res.status(404).json({ error: 'Position not found' });
+    if (!position || !position.info) {
+      return res.status(404).json({ error: 'Position file not found' });
     }
 
-    res.json({ html: position.info });
+    // Побудова шляху до файлу відносно кореневого каталогу сервера
+    const filePath = path.join(__dirname, 'uploads', position.info);
+
+    // Відправлення HTML-файлу клієнту
+    res.sendFile(filePath);
   } catch (err) {
     console.error(err);
     res.status(500).send('Internal Server Error');
@@ -204,11 +220,12 @@ positionsService.get('/api/positions/:name/questions', async (req, res) => {
       return res.status(404).json({ error: 'Position not found' });
     }
 
-    const questionsData = position.pool.map(({ type, question, link, options }) => ({
+    const questionsData = position.pool.map(({ type, question, link, options, image }) => ({
       type,
       question,
       link,
       options: Object.keys(options),
+      image
     }));
 
     res.json(questionsData);

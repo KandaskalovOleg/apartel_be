@@ -33,9 +33,40 @@
           "ыв": false,
           "пыв": true
         }
+      },
+      {
+        "question": "вамваиваи",
+        "type": "radio",
+        "link": null,
+        "options": {
+          "2": true,
+          "sdv": false,
+          "sdv1": false
+        },
+        "image": null
+      },
+      {
+        "question": "тест",
+        "type": "radio",
+        "link": null,
+        "options": {
+          "1": false,
+          "2": true
+        },
+        "image": null
+      },
+      {
+        "question": "мвам",
+        "type": "radio",
+        "link": null,
+        "options": {
+          "мвам": false,
+          "мав": true
+        },
+        "image": "https://www.imgonline.com.ua/examples/bee-on-daisy.jpg"
       }
     ],
-    "info": "<p>Сюди писати інформацію яку має вивчити співробітник 0</p><p><br></p><p><br></p><ul><li>sdsdv<u><span class=\"ql-cursor\">﻿</span></u>vdsv</li></ul><blockquote>sdvsdv</blockquote><blockquote>sdv</blockquote><blockquote>sdv</blockquote><p><br></p><h2>Заголовок адм</h2><p><br></p><p><a href=\"https://uk.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Disambig_gray.svg\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\"><em><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Disambig_gray.svg/30px-Disambig_gray.svg.png\" alt=\"Іконка багатозначності\" height=\"23\" width=\"30\"></em></a><strong><em>Стаття</em></strong><em>&nbsp;— термін, який має кілька значень. Ця&nbsp;</em><a href=\"https://uk.wikipedia.org/wiki/%D0%92%D1%96%D0%BA%D1%96%D0%BF%D0%B5%D0%B4%D1%96%D1%8F:%D0%9D%D0%B5%D0%BE%D0%B4%D0%BD%D0%BE%D0%B7%D0%BD%D0%B0%D1%87%D0%BD%D1%96%D1%81%D1%82%D1%8C#%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%96_%D1%96%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B8_%D0%B4%D0%BB%D1%8F_%D1%80%D0%BE%D0%B7%D0%B2'%D1%8F%D0%B7%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F_%D0%BD%D0%B5%D0%BE%D0%B4%D0%BD%D0%BE%D0%B7%D0%BD%D0%B0%D1%87%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\"><em>сторінка значень</em></a><em>&nbsp;містить посилання на статті про кожне з них.</em></p><p><em>Якщо ви потрапили сюди за&nbsp;</em><a href=\"https://uk.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B5%D1%86%D1%96%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0:%D0%9F%D0%BE%D1%81%D0%B8%D0%BB%D0%B0%D0%BD%D0%BD%D1%8F_%D1%81%D1%8E%D0%B4%D0%B8/:%D0%A1%D1%82%D0%B0%D1%82%D1%82%D1%8F_(%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%BD%D1%8F)\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\"><em>внутрішнім посиланням</em></a><em>, будь ласка, поверніться та виправте його так, щоб воно вказувало безпосередньо на потрібну статтю.</em></p><p><br></p><p><br></p><p><br></p><ul><li>Стаття&nbsp;— науковий або публіцистичний&nbsp;<a href=\"https://uk.wikipedia.org/wiki/%D0%A2%D0%B2%D1%96%D1%80\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">твір</a>&nbsp;невеликого розміру в&nbsp;<a href=\"https://uk.wikipedia.org/wiki/%D0%97%D0%B1%D1%96%D1%80%D0%BA%D0%B0\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">збірці</a>,&nbsp;<a href=\"https://uk.wikipedia.org/wiki/%D0%96%D1%83%D1%80%D0%BD%D0%B0%D0%BB\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">журналі</a>,&nbsp;<a href=\"https://uk.wikipedia.org/wiki/%D0%93%D0%B0%D0%B7%D0%B5%D1%82%D0%B0\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">газеті</a>&nbsp;тощо<a href=\"https://uk.wikipedia.org/wiki/%D0%A1%D1%82%D0%B0%D1%82%D1%82%D1%8F_(%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%BD%D1%8F)#cite_note-%D1%81%D1%83%D0%BC-1\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\"><sup>[1]</sup></a>. Вона є результатом розумового процесу, в якому поєднуються аналіз, структурування, формулювання та висловлення думок.</li><li class=\"ql-indent-1\"><a href=\"https://uk.wikipedia.org/wiki/%D0%A1%D1%82%D0%B0%D1%82%D1%82%D1%8F_(%D0%B6%D1%83%D1%80%D0%BD%D0%B0%D0%BB%D1%96%D1%81%D1%82%D0%B8%D0%BA%D0%B0)\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">Стаття (журналістика)</a></li><li class=\"ql-indent-1\"><a href=\"https://uk.wikipedia.org/wiki/%D0%9D%D0%B0%D1%83%D0%BA%D0%BE%D0%B2%D0%B0_%D1%81%D1%82%D0%B0%D1%82%D1%82%D1%8F\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">Наукова стаття</a></li><li><a href=\"https://uk.wikipedia.org/wiki/%D0%95%D0%BD%D1%86%D0%B8%D0%BA%D0%BB%D0%BE%D0%BF%D0%B5%D0%B4%D0%B8%D1%87%D0%BD%D0%B0_%D1%81%D1%82%D0%B0%D1%82%D1%82%D1%8F\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">Енциклопедична стаття</a></li><li class=\"ql-indent-1\"><a href=\"https://uk.wikipedia.org/w/index.php?title=%D0%A1%D1%82%D0%B0%D1%82%D1%82%D1%8F_%D0%92%D1%96%D0%BA%D1%96%D0%BF%D0%B5%D0%B4%D1%96%D1%97&amp;action=edit&amp;redlink=1\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(186, 0, 0); background-color: initial;\">Стаття Вікіпедії</a></li><li class=\"ql-indent-1\"><a href=\"https://uk.wikipedia.org/wiki/%D0%A1%D0%BB%D0%BE%D0%B2%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2%D0%B0_%D1%81%D1%82%D0%B0%D1%82%D1%82%D1%8F\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">Словникова стаття</a>&nbsp;— стаття, що описує&nbsp;<a href=\"https://uk.wikipedia.org/wiki/%D0%A1%D0%BB%D0%BE%D0%B2%D0%BE\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">слово</a>,&nbsp;<a href=\"https://uk.wikipedia.org/wiki/%D0%A1%D0%BB%D0%BE%D0%B2%D0%BE%D1%81%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%BD%D1%8F\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">словосполучення</a>, їх значення, приклади вживання у словнику.</li><li class=\"ql-indent-1\"><a href=\"https://uk.wikipedia.org/w/index.php?title=%D0%95%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BD%D0%BD%D0%B0_%D1%81%D1%82%D0%B0%D1%82%D1%82%D1%8F&amp;action=edit&amp;redlink=1\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(186, 0, 0); background-color: initial;\">Електронна стаття</a>&nbsp;— стаття на електронному&nbsp;<a href=\"https://uk.wikipedia.org/wiki/%D0%9D%D0%BE%D1%81%D1%96%D0%B9_%D1%96%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D1%96%D1%97\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">носії інформації</a>&nbsp;або розповсюджена&nbsp;<a href=\"https://uk.wikipedia.org/w/index.php?title=%D0%95%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BD%D0%BD%D1%96_%D0%B7%D0%B0%D1%81%D0%BE%D0%B1%D0%B8_%D0%BC%D0%B0%D1%81%D0%BE%D0%B2%D0%BE%D1%97_%D1%96%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D1%96%D1%97&amp;action=edit&amp;redlink=1\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(186, 0, 0); background-color: initial;\">електронними засобами масової інформації</a>&nbsp;(також&nbsp;<em>мережева стаття</em>,&nbsp;<em>стаття в інтернеті</em>,&nbsp;<em>стаття у мережі</em>).</li><li><strong>Стаття</strong>&nbsp;— самостійний&nbsp;<a href=\"https://uk.wikipedia.org/wiki/%D0%A0%D0%BE%D0%B7%D0%B4%D1%96%D0%BB\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">розділ</a>,&nbsp;<a href=\"https://uk.wikipedia.org/wiki/%D0%9F%D0%B0%D1%80%D0%B0%D0%B3%D1%80%D0%B0%D1%84\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">параграф</a>&nbsp;у&nbsp;<a href=\"https://uk.wikipedia.org/w/index.php?title=%D0%AE%D1%80%D0%B8%D0%B4%D0%B8%D1%87%D0%BD%D0%B8%D0%B9_%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82&amp;action=edit&amp;redlink=1\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(186, 0, 0); background-color: initial;\">юридичному документі</a>, описі,&nbsp;<a href=\"https://uk.wikipedia.org/wiki/%D0%A1%D0%BB%D0%BE%D0%B2%D0%BD%D0%B8%D0%BA\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">словнику</a>&nbsp;і т.ін.<a href=\"https://uk.wikipedia.org/wiki/%D0%A1%D1%82%D0%B0%D1%82%D1%82%D1%8F_(%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%BD%D1%8F)#cite_note-%D1%81%D1%83%D0%BC-1\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\"><sup>[1]</sup></a></li><li><strong>Стаття</strong>&nbsp;—&nbsp;<a href=\"https://uk.wikipedia.org/wiki/%D0%A0%D0%BE%D0%B7%D0%B4%D1%96%D0%BB\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">розділ</a>&nbsp;у&nbsp;<a href=\"https://uk.wikipedia.org/wiki/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">документі</a>,&nbsp;<a href=\"https://uk.wikipedia.org/wiki/%D0%91%D1%8E%D0%B4%D0%B6%D0%B5%D1%82\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">бюджеті</a>, який містить назву джерела доходу або обґрунтування витрати<a href=\"https://uk.wikipedia.org/wiki/%D0%A1%D1%82%D0%B0%D1%82%D1%82%D1%8F_(%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%BD%D1%8F)#cite_note-%D1%81%D1%83%D0%BC-1\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\"><sup>[1]</sup></a>.</li><li><strong>Стаття</strong>&nbsp;—&nbsp;<a href=\"https://uk.wikipedia.org/wiki/%D0%A0%D0%BE%D0%B7%D1%80%D1%8F%D0%B4\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">розряд</a>,&nbsp;<a href=\"https://uk.wikipedia.org/wiki/%D0%92%D0%B8%D0%B4\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">вид</a>,&nbsp;<a href=\"https://uk.wikipedia.org/wiki/%D0%93%D0%B0%D0%BB%D1%83%D0%B7%D1%8C\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">галузь</a>&nbsp;будь-чого.<a href=\"https://uk.wikipedia.org/wiki/%D0%A1%D1%82%D0%B0%D1%82%D1%82%D1%8F_(%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%BD%D1%8F)#cite_note-%D1%81%D1%83%D0%BC-1\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\"><sup>[1]</sup></a></li><li><strong>Стаття</strong>&nbsp;— розряд,&nbsp;<a href=\"https://uk.wikipedia.org/wiki/%D0%A1%D1%82%D1%83%D0%BF%D1%96%D0%BD%D1%8C\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">ступінь</a>&nbsp;старшинського (до революції також&nbsp;<a href=\"https://uk.wikipedia.org/wiki/%D0%9C%D0%B0%D1%82%D1%80%D0%BE%D1%81\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">матроського</a>)&nbsp;<a href=\"https://uk.wikipedia.org/wiki/%D0%92%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%BE%D0%B2%D1%96_%D0%B7%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">військового звання</a>&nbsp;у&nbsp;<a href=\"https://uk.wikipedia.org/wiki/%D0%A4%D0%BB%D0%BE%D1%82\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\">флоті</a>.<a href=\"https://uk.wikipedia.org/wiki/%D0%A1%D1%82%D0%B0%D1%82%D1%82%D1%8F_(%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%BD%D1%8F)#cite_note-%D1%81%D1%83%D0%BC-1\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(6, 69, 173); background-color: initial;\"><sup>[1]</sup></a></li></ul>"
+    "info": "1_1710429543481.html"
   },
   {
     "id": "2",
@@ -84,7 +115,7 @@
         }
       }
     ],
-    "info": "<p>Сюди писати ынформацію яку має вивчити співробітник</p>"
+    "info": "2_1710348040001.html"
   },
   {
     "id": "3",
@@ -100,12 +131,49 @@
         }
       }
     ],
-    "info": "<p>Сюди писати ынформацію яку має вивчити співробітник</p>"
+    "info": "3_1710336610560.html"
   },
   {
-    "id": "4",
-    "name": "csc",
+    "id": "5",
+    "name": "довга посада з пробілами",
+    "pool": [
+      {
+        "question": "1",
+        "type": "radio",
+        "link": null,
+        "options": {
+          "1.1": false,
+          "1.2": true,
+          "1.3": false
+        }
+      },
+      {
+        "question": "2",
+        "type": "radio",
+        "link": null,
+        "options": {
+          "2.1": false,
+          "2.2": false,
+          "2.3": true
+        }
+      },
+      {
+        "question": "3",
+        "type": "radio",
+        "link": null,
+        "options": {
+          "3.1": true,
+          "3.2": false,
+          "3.3": false
+        }
+      }
+    ],
+    "info": {}
+  },
+  {
+    "id": "6",
+    "name": "ит",
     "pool": [],
-    "info": "<p>Сюди писати інформацію яку має вивчити співробітник 2</p><h2>Заголовок</h2>"
+    "info": {}
   }
 ]
