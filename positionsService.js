@@ -5,11 +5,21 @@ const upload = multer({ dest: 'uploads/' });
 const path = require('path');
 const mammoth = require('mammoth');
 
-
 const positionsService = express.Router();
 const positionsDataFilePath = 'positionList.json';
+const userDataFilePath = 'usersData.json';
 
 positionsService.use(express.json());
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+      cb(null, 'images/') // Тут 'images/' - шлях до теки, де будуть зберігатись зображення
+  },
+  filename: function (req, file, cb) {
+      cb(null, Date.now() + '-' + file.originalname); // Генеруємо унікальне ім'я для зображення
+  }
+});
+const uploadImg = multer({ storage: storage });
 
 // Endpoint для отримання всіх позицій
 positionsService.get('/api/positions', async (req, res) => {
@@ -23,20 +33,42 @@ positionsService.get('/api/positions', async (req, res) => {
   }
 });
 
+// Endpoint для отримання позицій для всіх користувачів
+positionsService.get('/api/positions/accessible', async (req, res) => {
+  try {
+    const data = await fs.readFile(positionsDataFilePath, 'utf8');
+    const positions = JSON.parse(data);
+
+    const accessiblePositions = positions.filter(position => position.access === true).map(position => position.name);
+    
+    res.json(accessiblePositions);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
 // Endpoint для додавання нової позиції
 positionsService.post('/api/positions', async (req, res) => {
-  const newPosition = req.body;
+  const { name, access } = req.body;
 
   try {
     const data = await fs.readFile(positionsDataFilePath, 'utf8');
     const positions = JSON.parse(data);
 
-    if (positions.some(position => position.name.toUpperCase() === newPosition.name.toUpperCase())) {
+    if (positions.some(position => position.name.toUpperCase() === name.toUpperCase())) {
       res.status(400).send('Position with the same name already exists');
     } else {
       const newId = positions.length > 0 ? String(Math.max(...positions.map(pos => +pos.id)) + 1) : '1';
 
-      const newPositionWithPool = { id: newId, ...newPosition, pool: [], info: {} };
+      const newPositionWithPool = { 
+        id: newId,
+        name,
+        access: access || false,
+        pool: [],
+        info: {}
+      };
 
       positions.push(newPositionWithPool);
       await fs.writeFile(positionsDataFilePath, JSON.stringify(positions, null, 2), 'utf8');
@@ -135,8 +167,22 @@ positionsService.delete('/api/positions/:id', async (req, res) => {
     const index = positions.findIndex(position => position.id === positionId);
 
     if (index !== -1) {
+      // Видалення позиції зі списку позицій
       const deletedPosition = positions.splice(index, 1)[0];
+
+      // Оновлення файлу з позиціями
       await fs.writeFile(positionsDataFilePath, JSON.stringify(positions, null, 2), 'utf8');
+
+      // Завантаження інформації про користувачів
+      const userData = await fs.readFile(userDataFilePath, 'utf8');
+      let users = JSON.parse(userData);
+
+      // Видалення користувачів, пов'язаних з видаленою позицією
+      const updatedUsers = users.filter(user => user.position !== deletedPosition.name);
+
+      // Оновлення файлу з користувачами
+      await fs.writeFile(userDataFilePath, JSON.stringify(updatedUsers, null, 2), 'utf8');
+
       res.json(deletedPosition);
     } else {
       res.status(404).send('Position not found');
@@ -147,26 +193,38 @@ positionsService.delete('/api/positions/:id', async (req, res) => {
   }
 });
 
-positionsService.post('/api/questions/:positionId', async (req, res) => {
+positionsService.post('/api/questions/:positionId', uploadImg.single('image'), async (req, res) => {
   const { positionId } = req.params;
-  const newQuestion = req.body;
+  const { question, type, link, options } = req.body;
+  const imagePath = req.file ? req.file.path : null; // Отримуємо шлях до зображення, якщо воно було завантажено
 
   try {
-    const data = await fs.readFile(positionsDataFilePath, 'utf8');
-    const positions = JSON.parse(data);
+      const data = await fs.readFile(positionsDataFilePath, 'utf8');
+      const positions = JSON.parse(data);
 
-    const positionIndex = positions.findIndex((pos) => pos.id === positionId);
+      const positionIndex = positions.findIndex((pos) => pos.id === positionId);
 
-    if (positionIndex !== -1) {
-      positions[positionIndex].pool.push(newQuestion);
-      await fs.writeFile(positionsDataFilePath, JSON.stringify(positions, null, 2), 'utf8');
-      res.json(newQuestion);
-    } else {
-      res.status(404).send('Посада не знайдена');
-    }
+      if (positionIndex !== -1) {
+          // Парсимо опції у форматі об'єкта
+          const parsedOptions = JSON.parse(options);
+
+          const newQuestion = {
+              question,
+              type,
+              link,
+              options: parsedOptions,
+              image: imagePath
+          };
+
+          positions[positionIndex].pool.push(newQuestion);
+          await fs.writeFile(positionsDataFilePath, JSON.stringify(positions, null, 2), 'utf8');
+          res.json(newQuestion);
+      } else {
+          res.status(404).send('Посада не знайдена');
+      }
   } catch (err) {
-    console.error(err);
-    res.status(500).send('Внутрішня помилка сервера');
+      console.error(err);
+      res.status(500).send('Внутрішня помилка сервера');
   }
 });
 
@@ -234,6 +292,5 @@ positionsService.get('/api/positions/:name/questions', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
-
 
 module.exports = positionsService;
