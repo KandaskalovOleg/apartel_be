@@ -10,7 +10,7 @@ usersService.use(express.json());
 
 usersService.post('/api/checkPassword', (req, res) => {
   const { password } = req.body;
-  const expectedPassword = '111111';
+  const expectedPassword = config.mainPassword;
 
   if (password === expectedPassword) {
     return res.status(200).json({ success: true });
@@ -18,6 +18,28 @@ usersService.post('/api/checkPassword', (req, res) => {
     return res.status(401).json({ success: false, message: 'Неправильний пароль' });
   }
 });
+
+// Endpoint для зміни пароля
+usersService.put('/api/changeMainPassword', (req, res) => {
+  const { oldPassword, newPassword } = req.body;
+
+  if (oldPassword === config.mainPassword) {
+    config.mainPassword = newPassword;
+
+
+    fs.writeFile('./env/env.js', `module.exports = ${JSON.stringify(config, null, 2)}`, (err) => {
+      if (err) {
+        console.error('Помилка збереження нового пароля у файлі env.js:', err);
+        return res.status(500).json({ success: false, message: 'Помилка сервера' });
+      }
+
+      return res.status(200).json({ success: true, message: 'Пароль успішно змінено' });
+    });
+  } else {
+    return res.status(401).json({ success: false, message: 'Неправильний старий пароль' });
+  }
+});
+
 
 // Endpoint для перевірки пароля
 usersService.post('/api/login', async (req, res) => {
