@@ -1,7 +1,7 @@
 const express = require('express');
 const fs = require('fs').promises;
 
-const config = require('./env/env');
+const config = require('./env/env.json');
 
 const usersService = express.Router();
 const usersDataFilePath = 'usersData.json';
@@ -27,9 +27,9 @@ usersService.put('/api/changeMainPassword', (req, res) => {
     config.mainPassword = newPassword;
 
 
-    fs.writeFile('./env/env.js', `module.exports = ${JSON.stringify(config, null, 2)}`, (err) => {
+    fs.writeFile('./env/env.json', `${JSON.stringify(config, null, 2)}`, (err) => {
       if (err) {
-        console.error('Помилка збереження нового пароля у файлі env.js:', err);
+        console.error('Помилка збереження нового пароля у файлі env.json:', err);
         return res.status(500).json({ success: false, message: 'Помилка сервера' });
       }
 
